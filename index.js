@@ -155,8 +155,12 @@ class Ball{
                 if(b.have){
                     var circle = {x : this.x, y : this.y, r : this.r};
                     var rect = {x : b.x * b.width, y : b.y * b.height, w : b.width, h : b.height};
-                    if(this.RectCircleColliding(circle, rect)){
+                    if(this.RectCircleColliding(circle, rect) === 1){
                         this.dy = -this.dy;
+                        b.have = false;
+                    }
+                    else if(this.RectCircleColliding(circle, rect) === 2){
+                        this.dx = -this.dx;
                         b.have = false;
                     }
                 }
@@ -170,12 +174,12 @@ class Ball{
         if (distX > (rect.w/2 + circle.r)) { return false; }
         if (distY > (rect.h/2 + circle.r)) { return false; }
     
-        if (distX <= (rect.w/2)) { return true; } 
-        if (distY <= (rect.h/2)) { return true; }
+        if (distX <= (rect.w/2)) { return 1; } 
+        if (distY <= (rect.h/2)) { return 2; }
     
         var dx=distX-rect.w/2;
         var dy=distY-rect.h/2;
-        return (dx*dx+dy*dy<=(circle.r*circle.r));
+        return (dx*dx+dy*dy<=(circle.r*circle.r) ? 1 : 0);
     }
 }
 
