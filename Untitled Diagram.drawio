@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-18T15:18:46.653Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="o_kipiRr8kzd1AvAoiPr" version="14.4.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-18T15:26:10.393Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="WCyj0OJFvPw_KTwGh9Bl" version="14.4.9" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="2031" dy="1134" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="2000" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -148,7 +148,7 @@
           <mxGeometry x="30" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-123" value="수강" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
-          <mxGeometry x="1310" y="400" width="180" height="250" as="geometry" />
+          <mxGeometry x="1310" y="400" width="180" height="280" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-124" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-123">
           <mxGeometry y="30" width="180" height="30" as="geometry" />
@@ -177,8 +177,17 @@
         <mxCell id="V_wv7amkp1t62BWTInBq-132" value="교육장 번호(FK)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="V_wv7amkp1t62BWTInBq-130">
           <mxGeometry x="30" width="150" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="V_wv7amkp1t62BWTInBq-133" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-123">
+        <mxCell id="V_wv7amkp1t62BWTInBq-254" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-123">
           <mxGeometry y="120" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="V_wv7amkp1t62BWTInBq-255" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="V_wv7amkp1t62BWTInBq-254">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="V_wv7amkp1t62BWTInBq-256" value="교사번호(FK)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="V_wv7amkp1t62BWTInBq-254">
+          <mxGeometry x="30" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="V_wv7amkp1t62BWTInBq-133" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-123">
+          <mxGeometry y="150" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-134" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="V_wv7amkp1t62BWTInBq-133">
           <mxGeometry width="30" height="30" as="geometry" />
@@ -187,7 +196,7 @@
           <mxGeometry x="30" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-234" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-123">
-          <mxGeometry y="150" width="180" height="30" as="geometry" />
+          <mxGeometry y="180" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-235" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="V_wv7amkp1t62BWTInBq-234">
           <mxGeometry width="30" height="30" as="geometry" />
@@ -196,7 +205,7 @@
           <mxGeometry x="30" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-246" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-123">
-          <mxGeometry y="180" width="180" height="30" as="geometry" />
+          <mxGeometry y="210" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-247" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="V_wv7amkp1t62BWTInBq-246">
           <mxGeometry width="30" height="30" as="geometry" />
@@ -205,7 +214,7 @@
           <mxGeometry x="30" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-243" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-123">
-          <mxGeometry y="210" width="180" height="30" as="geometry" />
+          <mxGeometry y="240" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-244" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" vertex="1" parent="V_wv7amkp1t62BWTInBq-243">
           <mxGeometry width="30" height="30" as="geometry" />
@@ -286,7 +295,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-182" value="교사" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
-          <mxGeometry x="570" y="570" width="180" height="150" as="geometry" />
+          <mxGeometry x="980" y="640" width="180" height="150" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-183" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-182">
           <mxGeometry y="30" width="180" height="30" as="geometry" />
@@ -325,7 +334,7 @@
           <mxGeometry x="30" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-201" value="정규직 교사" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
-          <mxGeometry x="750" y="770" width="180" height="100" as="geometry" />
+          <mxGeometry x="1120" y="860" width="180" height="100" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-202" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-201">
           <mxGeometry y="30" width="180" height="30" as="geometry" />
@@ -346,7 +355,7 @@
           <mxGeometry x="30" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-214" value="비정규직 교사" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" parent="1">
-          <mxGeometry x="400" y="780" width="180" height="100" as="geometry" />
+          <mxGeometry x="770" y="870" width="180" height="100" as="geometry" />
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-215" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="V_wv7amkp1t62BWTInBq-214">
           <mxGeometry y="30" width="180" height="30" as="geometry" />
@@ -368,14 +377,14 @@
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-227" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="V_wv7amkp1t62BWTInBq-192" target="V_wv7amkp1t62BWTInBq-202">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
-            <mxPoint x="740" y="620" as="sourcePoint" />
-            <mxPoint x="840" y="520" as="targetPoint" />
+            <mxPoint x="1110" y="710" as="sourcePoint" />
+            <mxPoint x="1210" y="610" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="V_wv7amkp1t62BWTInBq-228" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;" edge="1" parent="1" source="V_wv7amkp1t62BWTInBq-214">
+        <mxCell id="V_wv7amkp1t62BWTInBq-228" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="V_wv7amkp1t62BWTInBq-214" target="V_wv7amkp1t62BWTInBq-183">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
-            <mxPoint x="480" y="780" as="sourcePoint" />
-            <mxPoint x="570" y="615" as="targetPoint" />
+            <mxPoint x="850" y="870" as="sourcePoint" />
+            <mxPoint x="940" y="705" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="V_wv7amkp1t62BWTInBq-250" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERoneToMany;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="V_wv7amkp1t62BWTInBq-127" target="V_wv7amkp1t62BWTInBq-77">
@@ -388,6 +397,12 @@
           <mxGeometry width="100" height="100" relative="1" as="geometry">
             <mxPoint x="1180" y="580" as="sourcePoint" />
             <mxPoint x="1280" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V_wv7amkp1t62BWTInBq-257" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERzeroToMany;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="V_wv7amkp1t62BWTInBq-183" target="V_wv7amkp1t62BWTInBq-254">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="1060" y="590" as="sourcePoint" />
+            <mxPoint x="1160" y="490" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
