@@ -2,6 +2,7 @@ const width_num = 6;
 const height_num = 15;
 const speed = 8;
 let clickOn = true;
+let Mode = "drawFlyMovement";
 canvas = document.getElementById('tutorial');
 c = canvas.getContext('2d');
 
@@ -116,9 +117,6 @@ class Ball{
         this.move = false;
         window.addEventListener('click', this.click.bind(this));
     }
-    moveto(x){
-
-    }
     click(e){
         if(!this.move){
             this.move = true;
@@ -129,6 +127,18 @@ class Ball{
             var distance = Math.sqrt(Math.abs(dis_x*dis_x)+Math.abs(dis_y*dis_y));
             this.dx = dis_x / distance * speed;
             this.dy = dis_y / distance * speed;
+        }
+    }
+    moveto(x){
+        this.draw();
+        if(Math.abs(x - this.x) < speed){
+            this.x = x;
+            return true;
+        }
+        else{
+            let direction_x = (x - this.x) > 0 ? 1 : -1;
+            this.x += direction_x * speed;
+            return false;
         }
     }
     update(){
@@ -161,27 +171,45 @@ class BallControl{
     constructor(block_control){
         this.block_control = block_control;
         this.balls = [];
-        this.turn_finished = 0;
+        this.drawFlyMovementfinished = 0;
         this.balls.push(new Ball());
+        this.finished_x = this.balls[0].x;
     }
-    draw(){
+    drawFlyMovement(){
         this.collisionDetection();
         for(let b = 0; b <this.balls.length; b++){
-            this.turn_finished += this.balls[b].update() ? 1 : 0;
-        }
-        if(this.turn_finished === this.balls.length){
-            for(let b = 0; b < this.balls.length; b++){
-                this.balls[b].move = false;
+            this.drawFlyMovementfinished += this.balls[b].update() ? 1 : 0;
+            if(this.drawFlyMovementfinished === 1){
+                this.finished_x = this.balls[b].x;
             }
-            this.turn_finished = 0;
-            this.block_control.add_line();
-            this.add_ball();
         }
+        if(this.drawFlyMovementfinished === this.balls.length){
+            Mode = "drawCollectMovement";
+            this.drawFlyMovementfinished = 0;
+        }
+    }
+    drawCollectMovement(){
+        let finished = true;
+        for(let b = 0; b < this.balls.length; b++){
+            let tem = this.balls[b].moveto(this.finished_x);
+            finished = finished && tem;
+        }
+        if(finished){
+            Mode = "drawMapMovement";
+        }
+    }
+    drawMapMovement(){
+        this.block_control.add_line();
+        this.add_ball();
+        for(let b = 0; b < this.balls.length; b++){
+            this.balls[b].move = false; //개선해야함. 모든 ball들의 move 상태가 동시에 변할 수 있도록
+        }
+        Mode = "drawFlyMovement";
     }
     add_ball(){
         let tempBall = new Ball();
-        tempBall.x = this.balls[0].x;
-        tempBall.y = this.balls[0].y;
+        tempBall.x = this.finished_x;
+        tempBall.y = canvas.height - tempBall.r;
         this.balls.push(tempBall);
     }
     collisionDetection(){
@@ -230,7 +258,17 @@ block_control.add_line();
 function draw(){
     app.draw();
     block_control.draw();
-    ball_control.draw();
+    //console.log(Mode);
+    if(Mode === "drawFlyMovement"){
+        ball_control.drawFlyMovement();
+    }
+    if(Mode === "drawCollectMovement"){
+        ball_control.drawCollectMovement();
+    }
+    if(Mode === "drawMapMovement"){
+        ball_control.drawMapMovement();
+    }
+    //ball_control.draw();
 }
 
 setInterval(() => {
