@@ -1,6 +1,7 @@
 const width_num = 6;
 const height_num = 15;
 const speed = 8;
+const timeFrame = 10;
 let clickOn = true;
 let Mode = "drawFlyMovement";
 canvas = document.getElementById('tutorial');
@@ -115,19 +116,6 @@ class Ball{
         this.dx = 0;
         this.dy = 0;
         this.move = false;
-        window.addEventListener('click', this.click.bind(this));
-    }
-    click(e){
-        if(!this.move){
-            this.move = true;
-            var mouse_x = e.clientX;
-            var mouse_y = e.clientY;
-            var dis_x = mouse_x - this.x
-            var dis_y = mouse_y - this.y
-            var distance = Math.sqrt(Math.abs(dis_x*dis_x)+Math.abs(dis_y*dis_y));
-            this.dx = dis_x / distance * speed;
-            this.dy = dis_y / distance * speed;
-        }
     }
     moveto(x){
         this.draw();
@@ -174,10 +162,30 @@ class BallControl{
         this.drawFlyMovementfinished = 0;
         this.balls.push(new Ball());
         this.finished_x = this.balls[0].x;
+        this.clickOn = true;
+        window.addEventListener('click', this.click.bind(this));
+    }
+    click(e){
+        if(this.clickOn){
+            this.clickOn = false;
+            let mouse_x = e.clientX;
+            let mouse_y = e.clientY;
+            let dis_x = mouse_x - this.balls[0].x;
+            let dis_y = mouse_y - this.balls[0].y;
+            let distance = Math.sqrt(Math.abs(dis_x*dis_x)+Math.abs(dis_y*dis_y));
+            let dx = dis_x / distance * speed;
+            let dy = dis_y / distance * speed;
+            for(let b = 0; b < this.balls.length; b++){
+                setTimeout(() => {
+                    this.balls[b].dx = dx;
+                    this.balls[b].dy = dy;
+                }, timeFrame * b * 3);
+            }
+        }
     }
     drawFlyMovement(){
         this.collisionDetection();
-        for(let b = 0; b <this.balls.length; b++){
+        for(let b = 0; b < this.balls.length; b++){
             this.drawFlyMovementfinished += this.balls[b].update() ? 1 : 0;
             if(this.drawFlyMovementfinished === 1){
                 this.finished_x = this.balls[b].x;
@@ -201,9 +209,10 @@ class BallControl{
     drawMapMovement(){
         this.block_control.add_line();
         this.add_ball();
-        for(let b = 0; b < this.balls.length; b++){
+        /*for(let b = 0; b < this.balls.length; b++){
             this.balls[b].move = false; //개선해야함. 모든 ball들의 move 상태가 동시에 변할 수 있도록
-        }
+        }*/
+        this.clickOn = true;
         Mode = "drawFlyMovement";
     }
     add_ball(){
@@ -273,4 +282,4 @@ function draw(){
 
 setInterval(() => {
    draw(); 
-}, 10);
+}, timeFrame);
