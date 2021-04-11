@@ -4,6 +4,10 @@ const speed = 8;
 const timeFrame = 10;
 let clickOn = true;
 let Mode = "drawFlyMovement";
+let gameFinished = false;
+let app;
+let block_control;
+let ball_control;
 canvas = document.getElementById('tutorial');
 c = canvas.getContext('2d');
 
@@ -11,7 +15,6 @@ class App{
     constructor(){
         window.addEventListener('resize', this.resize.bind(this));
         this.resize();
-        this.draw()
     }
 
     resize(){
@@ -55,7 +58,7 @@ class Block{
 
 class BlockControl{
     constructor(){
-        this.block_num = 0;
+        this.block_num = 0; //block얀에 있는 숫자를 의미함
         this.blocks = []
         for(var r = 0; r < height_num; r++){
             this.blocks[r] = [];
@@ -66,7 +69,7 @@ class BlockControl{
             }
         }
     }
-    add_line(){
+    add_line(){ // block line을 추가 맨 마지막 칸에 block line이 추가되면 true를 리턴
         this.block_num++;
         for(var r = height_num - 1; r > 0 ; r--){
             for(var c = 0; c < width_num; c++){
@@ -81,6 +84,14 @@ class BlockControl{
         block_position.forEach(function(ele){
             this.blocks[0][ele].num = this.block_num;
         }, this);
+
+        for(var c = 0; c < width_num; c++){
+            if(this.blocks[height_num-1][c].num > 0){
+                return true;
+            }
+        }
+        document.getElementById("score").innerText = this.block_num;
+        return false;
     }
     draw(){
         for(var r = 0; r < height_num; r++){
@@ -163,7 +174,7 @@ class BallControl{
         this.balls.push(new Ball());
         this.finished_x = this.balls[0].x;
         this.clickOn = true;
-        window.addEventListener('click', this.click.bind(this));
+        document.getElementById('tutorial').addEventListener('click', this.click.bind(this));
     }
     click(e){
         if(this.clickOn){
@@ -207,13 +218,17 @@ class BallControl{
         }
     }
     drawMapMovement(){
-        this.block_control.add_line();
+        gameFinished = this.block_control.add_line();
         this.add_ball();
-        /*for(let b = 0; b < this.balls.length; b++){
-            this.balls[b].move = false; //개선해야함. 모든 ball들의 move 상태가 동시에 변할 수 있도록
-        }*/
-        this.clickOn = true;
-        Mode = "drawFlyMovement";
+        if(!gameFinished){
+            this.clickOn = true;
+            Mode = "drawFlyMovement";
+        }
+        else{
+            app.draw();
+            this.block_control.draw();
+            alert("game Finished");
+        }
     }
     add_ball(){
         let tempBall = new Ball();
@@ -259,25 +274,31 @@ class BallControl{
     }
 }
 
-var app = new App();
-var block_control = new BlockControl();
-var ball_control = new BallControl(block_control);
-block_control.add_line();
+function init(){
+    app = new App();
+    block_control = new BlockControl();
+    ball_control = new BallControl(block_control);
+    block_control.add_line();
+    gameFinished = false;
+    Mode = "drawFlyMovement";
+}
+
+init();
 
 function draw(){
-    app.draw();
-    block_control.draw();
-    //console.log(Mode);
-    if(Mode === "drawFlyMovement"){
-        ball_control.drawFlyMovement();
+    if(!gameFinished){
+        app.draw();
+        block_control.draw();
+        if(Mode === "drawFlyMovement"){
+            ball_control.drawFlyMovement();
+        }
+        if(Mode === "drawCollectMovement"){
+            ball_control.drawCollectMovement();
+        }
+        if(Mode === "drawMapMovement"){
+            ball_control.drawMapMovement();
+        }
     }
-    if(Mode === "drawCollectMovement"){
-        ball_control.drawCollectMovement();
-    }
-    if(Mode === "drawMapMovement"){
-        ball_control.drawMapMovement();
-    }
-    //ball_control.draw();
 }
 
 setInterval(() => {
